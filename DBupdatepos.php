@@ -1,0 +1,19 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $pn = $_GET['pn'];
+  $gn = $_GET['gn'];
+  $nr = $_GET['nr'];
+  $p2 = $_GET['p2'];
+
+  $q="UPDATE tblcg SET p2=$p2,tp=NOW() WHERE pn=$pn AND gn=$gn AND nr=$nr";
+$res=mysqli_query($s,$q);
+
+  if($res==NULL)
+    echo "UPDATE(position):上書きに失敗しました";
+  else
+    echo "DONE";
+
+  mysqli_close($s);
+?>

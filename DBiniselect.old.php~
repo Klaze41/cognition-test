@@ -1,0 +1,20 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $Yid = $_GET['Yid'];
+  $gn  =  $_GET['gn'];
+  $nr  =  $_GET['nr'];
+
+  $q = "SELECT ps FROM tblcg WHERE pn=$Yid AND gn=$gn AND nr=$nr";
+  $res=mysql_query($q);
+
+  if(mysql_num_rows($res) > 0){
+    echo "fill";
+  }else{
+    echo "NULL";
+  }
+
+  mysql_close($s);
+
+?>
