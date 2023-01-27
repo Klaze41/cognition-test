@@ -1,0 +1,38 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="apple-touch-icon" href="images/HomeIcon.png">
+<link rel="stylesheet" href="css/admin.css" type="text/css" media="all">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/csv2table.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+<title>administration page</title>
+</head>
+
+<body>
+
+<?php
+  print '<input type="button" value="登録ユーザリストの更新" id="btn_idlist">';
+  print '<input type="button" value="ゲームログの更新" id="btn_cglist">';
+  print '<input type="button" value="データベースのクリア" id="btn_clrlist">';
+  print '<br>';
+
+  //print '<h class="alert">メッセージの表示</h><br>';
+
+  print '<div id="tblid_disp"></div>';
+  print '<div id="tblcg_disp"></div>';
+
+
+
+?>
+
+</body>
+</html>

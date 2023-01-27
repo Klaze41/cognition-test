@@ -1,0 +1,139 @@
+<?php
+  //http://127.0.0.1/~KonnoTakeshi/cg13/cg.php?mode=select&Iid=0&Yid=0&gn=2&Nr=0&nvs=0
+
+  $mode=$_GET['mode'];
+  $Iid=$_GET['Iid'];
+  $Yid=$_GET['Yid'];
+  $gn=$_GET['gn'];
+  $Nr=$_GET['Nr'];
+  $nvs=$_GET['nvs'];
+
+  if($mode =="") $mode='select';
+  if($Iid  =="") $Iid=0;
+  if($Yid  =="") $Yid=0;
+  if($gn   =="") $gn=0;
+  if($Nr   =="") $Nr=0;
+  if($nvs  =="") $nvs=0;
+
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="apple-touch-icon" href="images/HomeIcon.png">
+<link rel="stylesheet" href="css/cg1.css" type="text/css" media="all">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/math.js"></script>
+
+<script type="text/javascript" language="javascript">
+<?php
+  // js で使用する変数の初期化
+
+  // 文字の場合
+  print 'var mode = "' . $mode   . '";';
+
+  // 数値の場合
+  print 'var Iid  =  ' . $Iid    . ' ;';
+  print 'var Yid  =  ' . $Yid    . ' ;';
+  print 'var gn   =  ' . $gn     . ' ;';
+  print 'var Nr   =  ' . $Nr     . ' ;';
+  print 'var nvs  =  ' . $nvs    . ' ;';
+?>
+
+$(window).bind("beforeunload", function() {
+    if (mode!="start"){
+    // 確認メッセージに表示させたい文字列を返します。
+    return "再読み込みはしないでください";
+    }
+});
+</script>
+
+<script type="text/javascript" src="js/cg.js"></script>
+<title>coordination game</title>
+
+</head>
+<body>
+
+<?php
+
+switch($mode){
+case "select":
+  print '<h id="txt" style="position: relative; top: 30%; left: 30%;">やりたい方のボタンを押してください．<br><br>';
+  print '<input type="button" value="練習" id="btn_sg">';
+  print '<input type="button" value="本番" id="btn_cg">';
+  print '</h>';
+
+break;
+
+case "start":
+  print '<input type="button" value="スタート" id="btn_start" style="top: 40%; left: 40%;">';
+break;
+
+case "game":
+  print '<h id="txt">ラウンド数＝ </h><h class="nr">1</h>';
+  print '<h id="txt">　得点＝ </h><h class="sc">0</h>';
+  print '<div id="map">';
+  print '<img src="images/map.png">';
+  print '<ol>';
+  print '<li class="mapP0"><img src="images/p0000.png" id="P0"></li>';
+  print '<li class="mapP1"><img src="images/p0000.png" id="P1"></li>';
+  print '<li class="mapP2"><img src="images/p0000.png" id="P2"></li>';
+  print '<li class="mapP3"><img src="images/p0000.png" id="P3"></li>';
+  print '</ol>';
+  print '</div>';
+  print '<div id="Ymsg">';
+  print '<h class="Ymsgtxt">相手のメッセージ</h>';
+  print '<ol>';
+  print '<li class="YmsgL"><img src="images/unknown.png" id="Yml"></li>';
+  print '<li class="YmsgR"><img src="images/unknown.png" id="Ymr"></li>';
+  print '</ol>';
+  print '</div>';
+  print '<div id="Imsg">';
+  print '<h class="Imsgtxt">自分のメッセージ</h>';
+  print '<ol>';
+  print '<li class="ImsgL"><img src="images/unknown.png" id="Iml"></li>';
+  print '<li class="ImsgR"><img src="images/unknown.png" id="Imr"></li>';
+  print '</ol>';
+  print '</div>';
+  print '<br><br><br>';
+  print '<h id="txt">　　　＞</h>';
+  print '<h class="alert">ここに表示される指示に従ってください．</h>';
+  print '<p>';
+  print '<input type="button" value="移動場所を送信"   id="btn_pos">';
+  print '<input type="button" value="メッセージを送信" id="btn_msg"><br>';
+  print '<input type="button" value="次のラウンド"     id="btn_nxt">';
+
+  //print '<p class="debug">デバッグ情報をここに．</p>';
+
+  break;
+
+case "end":
+  print '<h id="txt" style="position: relative; top: 30%; left: 30%;">これでゲームは終了です<br>';
+  print '続ける場合はボタンを押してください<br><br>';
+  print '<input type="button" value="next" id="btn_next">';
+  print '</h>';
+  break;
+
+case "alert":
+  print '<h id="txt" style="position: relative; top: 30%; left: 30%;">予期せぬ不具合が発生しました<br>';
+  print 'スタッフに声をかけてください<br>';
+  print '<input type="button" value="next" id="btn_next">';
+  print '</h>';
+  break;
+
+}
+
+
+
+?>
+
+</body>
+</html>
