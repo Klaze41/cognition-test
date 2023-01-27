@@ -1,0 +1,31 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $Iid = $_GET['Iid'];
+  $file_name = "data/list_id.csv";
+  $bkfile_name ="data/list_id".time()."csv";
+  $file_header = "ID番号(id), 相手ID(id2), ゲームID(gid), 名前(name), 年齢(age) , 性別(sex), 最終アクセス(state), 登録日時(date)\n";
+
+  //$q="SELECT * from tblid where id=$Iid";
+  $q="SELECT * from tblid";
+$res = mysqli_query($s,$q);
+  //$row = mysql_fetch_row($res);
+
+  $contents = $file_header;
+  while ($row = mysqli_fetch_array($res)) {
+      $contents = $contents . 
+	$row['id'] . "," .
+	$row['id2'] . "," .
+	$row['gid'] . "," .
+	$row['name'] . "," .
+	$row['age'] . "," .
+	$row['sex'] . "," .
+	$row['state'] . "," .
+	$row['date'] . "\n";
+  }
+  file_put_contents($file_name, $contents);
+
+  mysqli_close($s);
+  copy($file_name, $bkfile_name);
+?>

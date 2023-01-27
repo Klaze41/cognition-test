@@ -1,0 +1,15 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $q="delete from tblid";
+  $res = mysql_query($q);
+
+  $q="alter table tblid auto_increment = 1";
+  $res = mysql_query($q);
+
+  $q="delete from tblcg";
+  $res = mysql_query($q);
+
+  mysql_close($s);
+?>

@@ -1,0 +1,30 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $Iid = $_GET['Iid'];
+
+//$q = "LOCK TABLES tblid WRITE";
+//$res = mysql_query($q);
+
+  $q="UPDATE tblid SET state=NOW() where id=$Iid";
+  $res2=mysql_query($q);
+
+  
+//  $q = "UNLOCK TABLES";
+//  $res = mysql_query($q);  
+
+  $q = "SELECT * FROM tblid WHERE id2 =$Iid AND state > now() - interval 10 SECOND";
+  $res3 = mysql_query($q);
+
+
+  mysql_close($s);
+
+  if($row = mysql_fetch_assoc($res3)){
+      echo "found";
+  }else{
+      echo "kill";
+  }
+
+
+?>

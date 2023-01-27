@@ -1,0 +1,61 @@
+<?php
+  include 'DBconnect.php'; 
+  $s = DBconnect();  
+
+  $p_Name = $_GET['name'];
+  $p_Age  = $_GET['age'];
+  $p_Sex  = $_GET['sex'];
+
+  $q = "LOCK TABLES tblid WRITE";
+  $res = mysql_query($q);
+
+  // gid番号の最大値を取得
+  $q = "SELECT max(gid) FROM tblid";
+  $res = mysql_query($q);
+  $row = mysql_fetch_row($res);
+  if($row==0) $Igid = 1;
+  else        $Igid = $row[0]+1;
+
+  // id2 が NULL になっているデータを選択
+  $q = "SELECT * FROM tblid WHERE id2 IS NULL AND state >= now() - interval 5 SECOND";
+  $res = mysql_query($q);
+
+  if($row = mysql_fetch_assoc($res)){
+    $Yid=$row['id'];
+    $q="INSERT INTO tblid (id2,gid,name,age,sex,state,date) VALUES($Yid,$Igid,'$p_Name',$p_Age,'$p_Sex',NOW(),NOW())";
+    $res=mysql_query($q);
+
+    // 自分のid番号を取得→つまりはid番号の最大値を取得
+    $q = "SELECT max(id) FROM tblid";
+    $res = mysql_query($q);
+    $row = mysql_fetch_row($res);
+    $Iid = $row[0];
+
+    $q = "UPDATE tblid SET id2=$Iid,gid=$Igid WHERE id=$Yid";
+    $res=mysql_query($q);
+
+    // 既に登録済みの人とすぐにペアリングされるケース
+    // 自分のID番号 $Iid
+    // 相手のID番号 $Yid
+    // ゲームID     $Igid
+
+  }else{
+    $q="INSERT INTO tblid (id2,gid,name,age,sex,state,date) VALUES(NULL,NULL,'$p_Name',$p_Age,'$p_Sex',NOW(),NOW())";
+    $res=mysql_query($q);
+
+    // 自分のid番号を取得→つまりはid番号の最大値を取得
+    $q = "SELECT max(id) FROM tblid";
+    $res = mysql_query($q);
+    $row = mysql_fetch_row($res);
+    $Iid = $row[0];
+    $Yid = "0";
+  }
+
+  $q = "UNLOCK TABLES";
+  $res = mysql_query($q);  
+
+  
+  echo $Iid.":".$Yid;
+
+  mysql_close($s);
+?>

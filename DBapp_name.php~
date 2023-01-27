@@ -1,0 +1,20 @@
+<?php
+include 'DBconnect.php'; 
+$s = DBconnect();  
+
+$p_Name = $_GET['name'];
+ 
+$Yid = 0;
+  // id2 が NULL になっているデータを選択
+$q="SELECT id FROM tblid WHERE name = '$p_Name' AND state >= now() - interval 10 SECOND ";
+
+$res = mysql_query($q);
+$row = mysql_fetch_row($res);
+$Yid=0;
+if($row[0]>0){
+    $Yid=$row[0];
+}
+
+echo $Yid;
+mysql_close($s);
+?>
