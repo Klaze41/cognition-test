@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+body{
+  text-align:center;
+}
+
+table{
+  margin:10% auto;
+}
+
+td.cell_menu
+{
+  vertical-align: top;
+  text-align:left;
+}
+
+#btn_submit{
+  position: relative;
+  font-family: "Hiragino Maru Gothic ProN";
+  width: 300px;
+  margin: auto 50px 0px 0px;
+  font-size: 28px;
+  background: #EEE;
+  border: 3px solid #33CC00;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: #111;
+  padding: 10px 0;
+}
+
+p.warning{
+  color: red;
+  background-color: transparent;
+  /* font-weight: bold; */
+  font-family: "Hiragino Maru Gothic ProN";
+  font-size: 28px;
+}
+
+#btn_next
+{
+  visibility : hidden;
+  position: relative;
+  font-family: "Hiragino Maru Gothic ProN";
+  width: 200px;
+  margin: auto 0px 0px 0px;
+  font-size: 28px;
+  background: #EEE;
+  border: 3px solid #33CC00;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: #111;
+  padding: 10px 0;
+}
+
+#txt{
+  font-family: "Hiragino Maru Gothic ProN";
+  font-size: 24px;
+}

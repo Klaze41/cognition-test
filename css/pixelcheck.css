@@ -1,0 +1,154 @@
+
+
+div#map{
+  position: relative;
+  top: 0px;           /* map.top  = 0 */
+  left : 0px;         /* map.left = 0 */
+}
+
+div#map ol li{
+  position: absolute;
+  list-style-type: none;
+}
+
+div#map ol li.mapP0{
+  top:    5px;
+  left:   5px;
+}
+
+div#map ol li.mapP1{
+  top:    5px;
+  left: 215px;
+}
+
+div#map ol li.mapP2{
+  top:  215px;
+  left:   5px;
+}
+
+div#map ol li.mapP3{
+  top:  215px;
+  left: 215px;
+}
+
+#P0
+{ 
+  width: 180px;
+  height: 180px;
+}
+
+#P1
+{ 
+  width: 180px;
+  height: 180px;
+}
+
+#P2
+{ 
+  width: 180px;
+  height: 180px;
+}
+
+#P3
+{ 
+  width: 180px;
+  height: 180px;
+}
+
+
+div#Ymsg{
+  position: absolute;
+  top: 90px;             /* map.top + 90px */
+  left : 480px;
+}
+
+div#Ymsg h.Ymsgtxt{
+  position: relative;
+  width: 100px;
+  top: -50px;
+  left: 5px;
+  font-size: 32px;
+  font-family: "Hiragino Maru Gothic ProN";
+}
+
+div#Ymsg ol li{
+  position: absolute;
+  list-style-type: none;
+}
+
+div#Ymsg ol li.YmsgL{
+  top:    5px;
+  left:   5px;
+}
+
+div#Ymsg ol li.YmsgR{
+  top:    5px;
+  left: 140px;
+}
+
+
+
+div#Imsg{
+  position: absolute;
+  top: 300px;             /* map.top + 300px */
+  left : 480px;
+}
+
+div#Imsg h.Imsgtxt{
+  position: relative;
+  width: 100px;
+  top: -50px;
+  left: 5px;
+  font-size: 32px;
+  font-family: "Hiragino Maru Gothic ProN";
+}
+
+div#Imsg ol li{
+  position: absolute;
+  list-style-type: none;
+}
+
+div#Imsg ol li.ImsgL{
+  top:    5px;
+  left:   5px;
+}
+
+div#Imsg ol li.ImsgR{
+  top:    5px;
+  left: 140px;
+}
+
+#btn_pos{
+  left: 56px;
+  position: relative;
+  font-family: "Hiragino Maru Gothic ProN";
+  width: 300px;
+  font-size: 28px;
+  background: #EEE;
+  border: 3px solid #FF9900;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: #111;
+  padding: 10px 0;
+}
+
+#btn_msg{
+  left: 155px;
+  position: relative;
+  font-family: "Hiragino Maru Gothic ProN";
+  width: 300px;
+  font-size: 28px;
+  background: #EEE;
+  border: 3px solid #09C;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: #111;
+  padding: 10px 0;
+}
+
+#txt,.nr,.sc,.alert{
+  font-family: "Hiragino Maru Gothic ProN";
+  font-size: 24px;
+}
